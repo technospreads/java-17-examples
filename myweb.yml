@@ -12,7 +12,7 @@
     - name: Copying the war file to the destination
       copy: src=/tmp/myweb/java-17-examples-1.0-SNAPSHOT.jar dest="{{ tomcat_path }}/../webapps/"
 
-    - name: ==> shutdown qle tomcat ,path = "{{ tomcat_path }}/bin/"
+    - name: ==> shutdown qle tomcat ,path = "{{ tomcat_path }}"
       command: sh {{ tomcat_path }}/shutdown.sh
 
     - name: ==> sleep 3s
@@ -34,5 +34,5 @@
     - command: sleep 1s
       when: service_apache_status.stdout != ''
 
-    - name: ==> startup qle tomcat , path = {{ tomcat_path }}/bin/startup.sh
+    - name: ==> startup qle tomcat , path = {{ tomcat_path }}/startup.sh
       shell: setsid /bin/sh -i -c "{{ tomcat_path }}/startup.sh"
