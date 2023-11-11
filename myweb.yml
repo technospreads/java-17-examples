@@ -10,7 +10,7 @@
 
   tasks:
     - name: Copying the war file to the destination
-      copy: src=/tmp/myweb/java-17-examples-1.0-SNAPSHOT.jar dest="{{ tomcat_path }}/../webapps/"
+      copy: src=/tmp/myweb/java-17-examples-1.0-SNAPSHOT.war dest="{{ tomcat_path }}/../webapps/"
 
     - name: ==> shutdown qle tomcat ,path = "{{ tomcat_path }}"
       command: sh {{ tomcat_path }}/shutdown.sh
